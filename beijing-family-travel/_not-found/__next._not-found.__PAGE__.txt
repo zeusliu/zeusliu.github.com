@@ -1,6 +1,0 @@
-1:"$Sreact.fragment"
-2:I[22016,["/beijing-family-travel/_next/static/chunks/0qshkci3zewen.js","/beijing-family-travel/_next/static/chunks/2zizt7gdrzahd.js","/beijing-family-travel/_next/static/chunks/14mrh2-p_w84d.js"],""]
-3:I[97367,["/beijing-family-travel/_next/static/chunks/0qshkci3zewen.js","/beijing-family-travel/_next/static/chunks/2zizt7gdrzahd.js","/beijing-family-travel/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
-4:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"flex flex-col items-center justify-center min-h-[60vh] px-4 text-center","children":[["$","p",null,{"className":"text-6xl font-serif text-primary mb-4","children":"404"}],["$","h1",null,{"className":"font-serif text-2xl font-semibold mb-2","children":"页面未找到"}],["$","p",null,{"className":"text-text-muted mb-6","children":"你要找的页面可能已搬家了"}],["$","$L2",null,{"href":"/","className":"px-6 py-3 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors","children":"返回首页"}]]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Kfd600GjIgHgVaIf9xglU"}
-5:null
