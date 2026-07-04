@@ -1,0 +1,2 @@
+# GitHub Pages serves files from the static export output.
+# See .github/workflows/deploy-pages.yml
