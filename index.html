@@ -455,9 +455,103 @@
 						</div>
 					</div>
 
-					<a href="#move-top" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"> </span></a>
+				<a href="#move-top" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"> </span></a>
 				
-					<div data-scroll-reveal="enter bottom but wait 0.2s" class="footer">
+				<!-- 其余网站快速跳转 -->
+				<style>
+					.quick-sites { background: #f5f5f5; border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0; }
+					.quick-sites .wrap { max-width: 1100px; margin: 0 auto; padding: 0 15px; }
+					.quick-sites-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; background: none; border: none; cursor: pointer; padding: 18px 0; font-family: inherit; }
+					.quick-sites-toggle .qs-label { display: flex; align-items: center; gap: 12px; }
+					.quick-sites-toggle .qs-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #2f6f8f; }
+					.quick-sites-toggle .qs-title { font-size: 18px; font-weight: 700; color: #333; }
+					.quick-sites-toggle .qs-count { font-size: 13px; color: #999; }
+					.quick-sites-toggle .qs-chevron { width: 20px; height: 20px; transition: transform 0.3s; }
+					.quick-sites-toggle .qs-chevron svg { width: 100%; height: 100%; fill: none; stroke: #999; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+					.quick-sites.open .qs-chevron { transform: rotate(180deg); }
+					.quick-sites-panel { overflow: hidden; max-height: 0; transition: max-height 0.4s ease, opacity 0.4s ease; opacity: 0; }
+					.quick-sites.open .quick-sites-panel { max-height: 800px; opacity: 1; }
+					.quick-sites-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 12px; padding: 0 0 24px; }
+					@media (min-width: 600px) { .quick-sites-grid { grid-template-columns: repeat(2, 1fr); } }
+					@media (min-width: 900px) { .quick-sites-grid { grid-template-columns: repeat(3, 1fr); } }
+					.quick-sites-card { display: flex; flex-direction: column; gap: 6px; padding: 16px; background: #fff; border: 1px solid #e0e0e0; border-radius: 4px; text-decoration: none; transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s; }
+					.quick-sites-card:hover { border-color: #2f6f8f; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transform: translateY(-1px); }
+					.quick-sites-card .qsc-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+					.quick-sites-card .qsc-name { font-size: 15px; font-weight: 700; color: #333; }
+					.quick-sites-card:hover .qsc-name { color: #2f6f8f; }
+					.quick-sites-card .qsc-ext { width: 14px; height: 14px; opacity: 0.35; flex-shrink: 0; transition: opacity 0.2s; }
+					.quick-sites-card:hover .qsc-ext { opacity: 1; }
+					.quick-sites-card .qsc-ext svg { width: 100%; height: 100%; fill: none; stroke: #2f6f8f; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+					.quick-sites-card .qsc-desc { font-size: 13px; line-height: 1.5; color: #888; }
+					.quick-sites-card .qsc-tag { margin-top: auto; display: inline-block; width: fit-content; font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; border: 1px solid; }
+					.qsc-tag-finance { color: #2f6f8f; border-color: rgba(47,111,143,0.25); background: rgba(47,111,143,0.08); }
+					.qsc-tag-ai { color: #c45a3b; border-color: rgba(196,90,59,0.25); background: rgba(196,90,59,0.08); }
+					.qsc-tag-travel { color: #3f5d52; border-color: rgba(63,93,82,0.25); background: rgba(63,93,82,0.08); }
+					.qsc-tag-learning { color: #2f6f8f; border-color: rgba(47,111,143,0.25); background: rgba(47,111,143,0.08); }
+					.qsc-tag-docs { color: #888; border-color: #e0e0e0; background: #f9f9f9; }
+					.qsc-tag-other { color: #888; border-color: #e0e0e0; background: #f9f9f9; }
+				</style>
+				<div class="quick-sites" id="quickSites">
+					<div class="wrap">
+						<button class="quick-sites-toggle" onclick="document.getElementById('quickSites').classList.toggle('open')">
+							<div class="qs-label">
+								<span class="qs-eyebrow">Quick Links</span>
+								<span class="qs-title">其余网站快速跳转</span>
+								<span class="qs-count">8 个站点</span>
+							</div>
+							<span class="qs-chevron">
+								<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+							</span>
+						</button>
+						<div class="quick-sites-panel">
+							<div class="quick-sites-grid">
+								<a class="quick-sites-card" href="http://www.gophoto.com.cn/stock-limits/" target="_blank" rel="noopener noreferrer">
+									<div class="qsc-head"><span class="qsc-name">涨停股票分析系统</span><span class="qsc-ext"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></div>
+									<p class="qsc-desc">科技蓝主题，涨停股分析与筛选</p>
+									<span class="qsc-tag qsc-tag-finance">Finance</span>
+								</a>
+								<a class="quick-sites-card" href="http://www.gophoto.com.cn/agent-wiki/" target="_blank" rel="noopener noreferrer">
+									<div class="qsc-head"><span class="qsc-name">AgentWiki</span><span class="qsc-ext"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></div>
+									<p class="qsc-desc">AI Agent 交互式架构图与资源中心</p>
+									<span class="qsc-tag qsc-tag-ai">AI</span>
+								</a>
+								<a class="quick-sites-card" href="http://www.gophoto.com.cn/beijing-family-travel/" target="_blank" rel="noopener noreferrer">
+									<div class="qsc-head"><span class="qsc-name">京郊亲子假期指南</span><span class="qsc-ext"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></div>
+									<p class="qsc-desc">北京及周边 300km 亲子出游推荐</p>
+									<span class="qsc-tag qsc-tag-travel">Travel</span>
+								</a>
+								<a class="quick-sites-card" href="http://www.gophoto.com.cn/xixi-english/" target="_blank" rel="noopener noreferrer">
+									<div class="qsc-head"><span class="qsc-name">xixi English</span><span class="qsc-ext"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></div>
+									<p class="qsc-desc">英语学习站</p>
+									<span class="qsc-tag qsc-tag-learning">Learning</span>
+								</a>
+								<a class="quick-sites-card" href="http://www.gophoto.com.cn/Codex-LMStudio-GPT-OSS/" target="_blank" rel="noopener noreferrer">
+									<div class="qsc-head"><span class="qsc-name">Codex + LM Studio</span><span class="qsc-ext"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></div>
+									<p class="qsc-desc">Codex 通过 LM Studio 接入本地 GPT-OSS 文档</p>
+									<span class="qsc-tag qsc-tag-docs">Docs</span>
+								</a>
+								<a class="quick-sites-card" href="http://www.zuanbeiwo.com/" target="_blank" rel="noopener noreferrer">
+									<div class="qsc-head"><span class="qsc-name">钻北蜗旅行</span><span class="qsc-ext"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></div>
+									<p class="qsc-desc">zuuanbeiwo.com 旅行站</p>
+									<span class="qsc-tag qsc-tag-travel">Travel</span>
+								</a>
+								<a class="quick-sites-card" href="http://www.52710.com.cn/" target="_blank" rel="noopener noreferrer">
+									<div class="qsc-head"><span class="qsc-name">52710</span><span class="qsc-ext"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></div>
+									<p class="qsc-desc">52710.com.cn</p>
+									<span class="qsc-tag qsc-tag-other">Other</span>
+								</a>
+								<a class="quick-sites-card" href="http://www.gophoto.com.cn/b318l-moto-web/" target="_blank" rel="noopener noreferrer">
+									<div class="qsc-head"><span class="qsc-name">B318L 摩托进藏</span><span class="qsc-ext"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></div>
+									<p class="qsc-desc">北京 -> 拉萨摩托自驾全攻略</p>
+									<span class="qsc-tag qsc-tag-travel">Travel</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /其余网站快速跳转 -->
+			
+				<div data-scroll-reveal="enter bottom but wait 0.2s" class="footer">
 						<div data-scroll-reveal="enter bottom but wait 0.2s" class="footer-top">
 							<div class="wrap">
 								<ul>
